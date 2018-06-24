@@ -29,5 +29,13 @@ final class Configuration implements ConfigurationInterface
         $rootNode->children()
             ->scalarNode('broker_list')
             ->defaultValue(self::DEFAULT_BROKER);
+
+        $clientNode = new ArrayNodeDefinition('client');
+        $clientNode
+            ->children()
+            ->scalarNode('id');
+
+        $rootNode
+            ->append($clientNode);
     }
 }

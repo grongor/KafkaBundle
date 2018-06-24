@@ -14,17 +14,30 @@ class Configuration
     /** @var Conf */
     private $config;
 
-    public function __construct(string $groupId)
+    /** @var int|null */
+    private $maxMessages;
+
+    /** @var float|null */
+    private $maxSeconds;
+
+    public function __construct(string $groupId, ?int $maxMessages = null, ?float $maxSeconds = null)
     {
-        $config = new Conf();
-        $config->setDefaultTopicConf(new TopicConf());
-        $this->config = $config;
+        $this->config = new Conf();
+
         $this->set(ConfigConstants::GROUP_ID, $groupId);
+
+        $this->maxMessages = $maxMessages;
+        $this->maxSeconds  = $maxSeconds;
     }
 
     public function set(string $name, string $value) : void
     {
         $this->config->set($name, $value);
+    }
+
+    public function setDefaultTopicConf(TopicConf $topicConf) : void
+    {
+        $this->config->setDefaultTopicConf($topicConf);
     }
 
     public function commitIfAutoCommitDisabled(Message $message, KafkaConsumer $kafkaConsumer) : void
@@ -43,5 +56,15 @@ class Configuration
     public function get() : Conf
     {
         return $this->config;
+    }
+
+    public function getMaxMessages() : ?int
+    {
+        return $this->maxMessages;
+    }
+
+    public function getMaxSeconds() : ?float
+    {
+        return $this->maxSeconds;
     }
 }

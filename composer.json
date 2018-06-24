@@ -15,9 +15,9 @@
     "require": {
         "php": ">=7.1",
         "ext-rdkafka": "*",
-        "symfony/console": "^3.3|^4.0|^4.1@dev",
-        "symfony/framework-bundle": "~2.7|~3.0|~4.0",
-        "symfony/yaml": "~2.7|~3.0|~4.0"
+        "symfony/console": "^3.3|^4.0|^4.1",
+        "symfony/framework-bundle": "~3.0|~4.0|~4.1",
+        "symfony/yaml": "~3.0|~4.0|~4.1"
     },
     "require-dev": {
         "doctrine/coding-standard": "^4.0",

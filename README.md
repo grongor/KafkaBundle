@@ -1,9 +1,11 @@
 # PHP Kafka Symfony bundle for php-rdkafka
 
-[![Build Status](https://img.shields.io/travis/simPod/KafkaBundle/master.svg?style=flat-square)](https://travis-ci.org/simPod/KafkaBundle)
-[![Quality Score](https://img.shields.io/scrutinizer/g/simPod/KafkaBundle.svg?style=flat-square)](https://scrutinizer-ci.com/g/simPod/KafkaBundle)
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/simPod/KafkaBundle.svg?style=flat-square)](https://scrutinizer-ci.com/g/simPod/KafkaBundle)
-[![GitHub Issues](https://img.shields.io/github/issues/simPod/KafkaBundle.svg?style=flat-square)](https://github.com/simPod/KafkaBundle/issues)
+[![Build Status](https://travis-ci.org/simPod/KafkaBundle.svg)](https://travis-ci.org/simPod/KafkaBundle)
+[![Downloads](https://poser.pugx.org/simpod/kafka-bundle/d/total.svg)](https://packagist.org/packages/simpod/kafka-bundle)
+[![Packagist](https://poser.pugx.org/simpod/kafka-bundle/v/stable.svg)](https://packagist.org/packages/simpod/kafka-bundle)
+[![Licence](https://poser.pugx.org/simpod/kafka-bundle/license.svg)](https://packagist.org/packages/simpod/kafka-bundle)
+[![Quality Score](https://scrutinizer-ci.com/g/simPod/KafkaBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/simPod/KafkaBundle)
+[![Code Coverage](https://scrutinizer-ci.com/g/simPod/KafkaBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/simPod/KafkaBundle)
 
 ## Installation
 
@@ -40,7 +42,9 @@ Create eg. `kafka.yaml` file in your config directory with following content:
 
 ```yaml
 kafka:
-    broker_list: '%env(KAFKA_BROKER_LIST)%'
+    broker_list: '%env(KAFKA_BROKER_LIST)%' # required
+    client:
+        id: 'your-application-name'
 ```
 It reads env var `KAFKA_BROKER_LIST` that contains comma-separated list of brokers (`broker-1.kafka.com:9092,broker-2.kafka.com:9092`).
 

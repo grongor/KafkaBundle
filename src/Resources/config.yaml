@@ -5,8 +5,16 @@ services:
         public: false
 
     SimPod\KafkaBundle\Kafka\Brokers:
-      arguments:
-        $config: '%kafka%'
+        arguments:
+            $config: '%kafka%'
+
+    SimPod\KafkaBundle\Kafka\Consumer\ConsumerRunner:
 
     SimPod\KafkaBundle\Console\ConsumeCommand:
     SimPod\KafkaBundle\Console\ConsumerListCommand:
+
+    SimPod\KafkaBundle\Kafka\Client:
+        arguments:
+            $config: '%kafka%'
+
+    SimPod\KafkaBundle\Kafka\Producer:
